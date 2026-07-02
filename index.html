@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考勤加班核对工具</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header-section">
+            <h1>📊 考勤加班核对工具</h1>
+            <p>拖拽上传 Excel 考勤表，自动计算加班时长并生成核对报告</p>
+        </header>
+
+        <div class="drop-zone" id="dropZone">
+            <div class="icon">📁</div>
+            <h3>拖拽 Excel 文件到这里</h3>
+            <p>或点击选择文件，支持 .xlsx 格式</p>
+            <input type="file" id="fileInput" accept=".xlsx">
+        </div>
+
+        <div class="settings" id="settings" style="display: none;">
+            <h3>📍 选择工作表</h3>
+            <div class="sheet-checkboxes" id="sheetCheckboxes"></div>
+        </div>
+
+        <div class="action-area" id="actionArea" style="display: none;">
+            <button class="btn btn-primary" id="processBtn">开始核对</button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <div>正在计算加班时长，请稍候...</div>
+        </div>
+
+        <div id="alertArea"></div>
+        <div id="statsArea"></div>
+
+        <div id="report-container">
+            <div id="report-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
